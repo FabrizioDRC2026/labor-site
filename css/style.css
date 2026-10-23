@@ -1,4 +1,3 @@
-
 :root{
   --navy-900:#080D19;--navy-800:#0D1424;--navy-700:#111827;--navy-600:#1A2436;
   --gold-500:#D6B36A;--gold-400:#E8D5A0;--gold-600:#B8934E;--gold-700:#8A6B2C;
@@ -792,3 +791,20 @@ input:user-invalid,textarea:user-invalid,select:user-invalid{border-color:var(--
 .services .section-heading p{max-width:560px;margin-inline:auto;text-align:center}
 .services .section-heading .eyebrow{justify-content:center}
 
+
+/* ===== Ajustes: navegação maior + menu mobile ===== */
+.nav-link{font-size:clamp(15px,1.15vw,17px);font-weight:600}
+.site-nav{gap:clamp(18px,2.4vw,36px)}
+@media(max-width:1080px){
+  .site-nav .nav-link{display:block;font-size:22px;padding:18px 0;color:var(--silver-100)}
+  .site-nav{background:var(--navy-900);z-index:1}
+  .site-nav.is-open{transform:none;visibility:visible}
+  .menu-toggle{z-index:3;display:block}
+  .site-header .lockup,.site-header .brand{position:relative;z-index:3}
+}
+.about-copy .eyebrow{font-size:14px}
+.about-copy h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.about-photo .about-copy>p:not(.eyebrow),.about-copy>p:not(.eyebrow){font-size:clamp(17px,1.5vw,20px);line-height:1.75;max-width:640px}
+.pillars strong{font-size:17px}
+.pillars li div span{font-size:15px}
+.about-photo .about-copy{max-width:760px}
