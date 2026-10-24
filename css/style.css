@@ -885,3 +885,12 @@ html:not(.js) .col-reveal,.reduce-motion .col-reveal{display:none}
 @media (max-width:760px){
   html.js .hero-reveal{height:155vh;height:155svh}
 }
+@media (max-width:760px){
+  html.js .hero-reveal{height:128vh;height:128svh}
+}
+
+/* Web: persiana mais curta também no desktop */
+html.js .hero-reveal{height:150vh;height:150svh}
+@media (max-width:760px){
+  html.js .hero-reveal{height:128vh;height:128svh}
+}
