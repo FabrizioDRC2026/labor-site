@@ -39,6 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
 <link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
 <div class="loader" id="loader" aria-hidden="true">
@@ -72,7 +73,9 @@
 </header>
 
 <main id="conteudo">
-  <section class="hero hero-home" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-reveal" id="hero-reveal">
+  <div class="hero-reveal-stage">
+    <section class="hero hero-home" id="inicio" aria-labelledby="hero-title">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="container hero-grid hero-home-grid">
     <div class="hero-copy hero-home-copy">
@@ -80,6 +83,9 @@
     </div>
   </div>
 </section>
+    <div class="col-reveal" aria-hidden="true"><span class="cr-col"><span class="cr-panel"></span></span><span class="cr-col"><span class="cr-panel"></span></span><span class="cr-col"><span class="cr-panel"></span></span><span class="cr-col"><span class="cr-panel"></span></span><span class="cr-col"><span class="cr-panel"></span></span><span class="cr-col"><span class="cr-panel"></span></span></div>
+  </div>
+</div>
 
 <section class="services section section-light" id="servicos" aria-labelledby="servicos-title">
     <div class="container">
@@ -120,15 +126,52 @@
   </section>
 
 
-    <section class="about about-photo section reveal-bg" id="sobre" aria-labelledby="sobre-title">
-    <img class="about-bg" src="assets/img/sobre-labor-fundo.jpg" alt="" width="846" height="640" loading="lazy" decoding="async">
-    <div class="container about-grid">
-      
-      <div class="about-copy">
-        <p class="eyebrow reveal-right">Sobre a LABOR</p>
-        <h2 id="sobre-title" class="reveal-right reveal-delay-1">Compromisso, experiência <span>e resultados.</span></h2>
-        <p class="reveal-right reveal-delay-2">Manutenção e implantação comercial para empresas que precisam de espaços funcionais e prontos para a operação, com comunicação transparente e cuidado em cada etapa.</p>
-        <ul class="pillars reveal-right reveal-delay-3"><li><span class="pillar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H11l-4.5 4v-4h-1A1.5 1.5 0 0 1 4 14.5z"/><path class="a" d="M8 8.5h8M8 12h5"/></svg></span><div><strong>Atendimento próximo</strong><span>Comunicação clara e transparente.</span></div></li><li><span class="pillar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 2.8v5.7c0 4.6-3.1 8-7.5 9.5-4.4-1.5-7.5-4.9-7.5-9.5V5.8z"/><path class="a" d="M8.6 12.1l2.4 2.4 4.4-4.7"/></svg></span><div><strong>Qualidade e segurança</strong><span>Atenção em cada etapa da execução.</span></div></li><li><span class="pillar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4l16 16z"/><path class="a" d="M4 14h3.5M4 10h2M4 17.5h2M11 20v-3.5M15 20v-2"/></svg></span><div><strong>Solução sob medida</strong><span>Alinhada à necessidade do seu espaço.</span></div></li><li><span class="pillar-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V5.5A1.5 1.5 0 0 1 6.5 4h7A1.5 1.5 0 0 1 15 5.5V20M3 20h18M15 9.5h3.5A1.5 1.5 0 0 1 20 11v9"/><path class="a" d="M8.5 8h3M8.5 11.5h3M9 20v-3.5h2V20"/></svg></span><div><strong>Do zero ao pronto</strong><span>Seu espaço entregue para funcionar.</span></div></li></ul>
+    <section class="about about-stack section" id="sobre" aria-labelledby="sobre-title">
+    <div class="about-bg-wrap" aria-hidden="true"><img class="about-bg" src="assets/img/sobre-labor-fundo.jpg" alt="" width="846" height="640" loading="lazy" decoding="async"></div>
+    <div class="container">
+      <div class="stack-head">
+        <div class="stack-title">
+          <h2 id="sobre-title" class="reveal"><span class="serif">Compromisso, experiência</span><span class="sans">e resultados.</span></h2>
+          <p class="reveal reveal-delay-1">Manutenção e implantação comercial para empresas que precisam de espaços funcionais e prontos para a operação, com comunicação transparente e cuidado em cada etapa.</p>
+        </div>
+      </div>
+      <div class="stack">
+      <article class="stack-card" style="--i:0">
+        <div class="sc-ghost" aria-hidden="true" style="--n:19"><span>Atendimento próximo</span></div>
+        <div class="sc-text"><h3>Atendimento próximo</h3><p>Comunicação clara e transparente do primeiro contato até a entrega, com atenção às necessidades de cada cliente.</p></div>
+        <div class="sc-media">
+          <p class="sc-phrase">(Próximo de você)</p>
+          <div class="sc-photo"><img src="assets/img/hero-specialist.jpg" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <span class="sc-num" aria-hidden="true">(01)</span>
+      </article>
+      <article class="stack-card" style="--i:1">
+        <div class="sc-ghost" aria-hidden="true" style="--n:21"><span>Qualidade e segurança</span></div>
+        <div class="sc-text"><h3>Qualidade e segurança</h3><p>Atenção à qualidade e à segurança em cada etapa da execução, do planejamento ao acabamento.</p></div>
+        <div class="sc-media">
+          <p class="sc-phrase">(Cuidado em cada etapa)</p>
+          <div class="sc-photo"><img src="assets/img/servico-eletrica.jpg" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <span class="sc-num" aria-hidden="true">(02)</span>
+      </article>
+      <article class="stack-card" style="--i:2">
+        <div class="sc-ghost" aria-hidden="true" style="--n:18"><span>Solução sob medida</span></div>
+        <div class="sc-text"><h3>Solução sob medida</h3><p>Soluções alinhadas à necessidade do seu espaço e à rotina da sua operação.</p></div>
+        <div class="sc-media">
+          <p class="sc-phrase">(Pensado para o seu espaço)</p>
+          <div class="sc-photo"><img src="assets/img/servico-pintura.jpg" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <span class="sc-num" aria-hidden="true">(03)</span>
+      </article>
+      <article class="stack-card" style="--i:3">
+        <div class="sc-ghost" aria-hidden="true" style="--n:17"><span>Do zero ao pronto</span></div>
+        <div class="sc-text"><h3>Do zero ao pronto</h3><p>Do zero à sua empresa pronta: entregamos seu espaço pronto para funcionar.</p></div>
+        <div class="sc-media">
+          <p class="sc-phrase">(Pronto para funcionar)</p>
+          <div class="sc-photo"><img src="assets/img/servico-implantacao.jpg" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <span class="sc-num" aria-hidden="true">(04)</span>
+      </article>
       </div>
     </div>
   </section>
