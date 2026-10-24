@@ -880,3 +880,8 @@ html:not(.js) .col-reveal,.reduce-motion .col-reveal{display:none}
 .sc-ghost{container-type:normal}
 .sc-ghost span{left:4cqw;top:0;line-height:.8;font-size:calc(92cqw / (var(--n,16) * .56))}
 .stack-card{--gs:calc(92cqw / (var(--n,16) * .56));padding-top:calc(var(--gs) * .78 + 18px)}
+
+/* Mobile: persiana mais curta para sair da tela inicial com um único deslize */
+@media (max-width:760px){
+  html.js .hero-reveal{height:155vh;height:155svh}
+}
