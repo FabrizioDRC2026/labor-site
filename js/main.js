@@ -261,3 +261,56 @@ document.documentElement.className='js is-loading';
 
 ;
 (function(){var m=matchMedia("(max-width:760px)"),v=document.querySelector(".map-svg");function f(){if(v)v.setAttribute("preserveAspectRatio",m.matches?"xMidYMid meet":"none")}f();m.addEventListener&&m.addEventListener("change",f)})();
+;
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rm) return;
+  var wrap=document.getElementById('hero-reveal');
+  var panels=wrap?[].slice.call(wrap.querySelectorAll('.cr-panel')):[];
+  var heroCopy=wrap?wrap.querySelector('.hero-home-copy'):null;
+  var cards=[].slice.call(document.querySelectorAll('.stack-card'));
+  var ticking=false;
+  function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+  function clamp(v){return Math.max(0,Math.min(1,v))}
+  function update(){
+    ticking=false;
+    var vh=window.innerHeight;
+    if(wrap&&panels.length){
+      var r=wrap.getBoundingClientRect();
+      var p=clamp(-r.top/Math.max(1,wrap.offsetHeight-vh));
+      var n=panels.length, dur=0.5, step=(1-dur)/(n-1);
+      for(var i=0;i<n;i++){
+        var l=clamp((p-i*step)/dur);
+        panels[i].style.transform='scaleY('+ease(l).toFixed(4)+')';
+      }
+      if(heroCopy){heroCopy.style.opacity=String(1-clamp(p*1.6));}
+    }
+    for(var k=0;k<cards.length-1;k++){
+      var nx=cards[k+1].getBoundingClientRect();
+      var top=parseFloat(getComputedStyle(cards[k+1]).top)||0;
+      var prog=clamp(1-(nx.top-top)/(vh*0.6));
+      cards[k].style.transform='scale('+(1-0.06*prog).toFixed(4)+')';
+      cards[k].style.filter='brightness('+(1-0.12*prog).toFixed(3)+')';
+    }
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  window.addEventListener('scroll',req,{passive:true});
+  window.addEventListener('resize',req);
+  update();
+})();
+
+;
+(function(){
+  var g=document.querySelector('.service-grid'); if(!g) return;
+  var cards=[].slice.call(g.querySelectorAll('.service-card'));
+  var dots=document.createElement('div'); dots.className='service-dots'; dots.setAttribute('aria-label','Navegar pelos serviços');
+  cards.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ir para o serviço '+(i+1));
+    b.addEventListener('click',function(){g.scrollTo({left:c.offsetLeft-parseFloat(getComputedStyle(g).paddingLeft||0),behavior:'smooth'})});dots.appendChild(b)});
+  g.parentNode.insertBefore(dots,g.nextSibling);
+  var bs=[].slice.call(dots.children), t=false;
+  function upd(){t=false; var best=0,d=1e9; cards.forEach(function(c,i){var x=Math.abs(c.offsetLeft-parseFloat(getComputedStyle(g).paddingLeft||0)-g.scrollLeft); if(x<d){d=x;best=i}});
+    if(g.scrollLeft+g.clientWidth>=g.scrollWidth-4) best=cards.length-1;
+    bs.forEach(function(b,i){b.classList.toggle('on',i===best)})}
+  g.addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(upd)}},{passive:true});
+  window.addEventListener('resize',upd); upd();
+})();
