@@ -874,3 +874,9 @@ html:not(.js) .col-reveal,.reduce-motion .col-reveal{display:none}
 .stack-title h2,.stack-title p{text-align:left;margin-left:0}
 .sc-ghost{container-type:inline-size}
 .sc-ghost span{left:4cqw;top:.04em;font-size:calc(92cqw / (var(--n,16) * .56));max-width:none}
+
+/* texto fantasma em faixa própria, acima do conteúdo (sem sobreposição) */
+.stack{container-type:inline-size}
+.sc-ghost{container-type:normal}
+.sc-ghost span{left:4cqw;top:0;line-height:.8;font-size:calc(92cqw / (var(--n,16) * .56))}
+.stack-card{--gs:calc(92cqw / (var(--n,16) * .56));padding-top:calc(var(--gs) * .78 + 18px)}
